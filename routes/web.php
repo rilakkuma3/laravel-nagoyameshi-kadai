@@ -27,18 +27,17 @@ require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     Route::get('home', [Admin\HomeController::class, 'index'])->name('home');
-    Route::resource('users', Admin\UserController::class);
-    Route::resource('restaurants', RestaurantController::class);
 });
 
-Route::get('admin/restaurants/index', [Admin\RestaurantController::class, 'index'])->name('admin.restaurants.index');
 
-Route::get('admin/restaurants/create', [Admin\RestaurantController::class, 'create'])->name('admin.restaurants.create');
+Route::controller(RestaurantController::class)->group(function () {
+    Route::get('/admin/restaurants/index', 'index')->name('admin.restaurants.index');
+    Route::get('/admin/restaurants/show/{restaurant}', 'show')->name('admin.restaurants.show');
+    Route::get('/admin/restaurants/edit/{restaurant}', 'edit')->name('admin.restaurants.edit');
+    Route::get('/admin/restaurants/create', 'create')->name('admin.restaurants.create');
+    Route::post('/admin/restaurants/store', 'store')->name('admin.restaurants.store');
+    Route::delete('/admin/restaurants/{restaurant}', 'destroy')->name('admin.restaurants.destroy');
+    Route::patch('/admin/restaurants/show/{restaurant}', 'update')->name('admin.restaurants.update');
+});
 
-Route::get('admin/restaurants/show={restaurant}', [Admin\RestaurantController::class, 'show'])->name('admin.restaurants.show');
-
-Route::resource('restaurants', RestaurantController::class, )->only('store', 'update', 'destroy');
-
-Route::get('admin/restaurants/edit', [Admin\RestaurantController::class, 'edit'])->name('admin.restaurants.edit');
-
-
+Route::resource('admin/categories', CategoryController::class)->only(['index', 'store', 'update', 'destroy'])->names('admin.categories');
