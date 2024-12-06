@@ -41,3 +41,8 @@ Route::controller(RestaurantController::class)->group(function () {
 });
 
 Route::resource('admin/categories', CategoryController::class)->only(['index', 'store', 'update', 'destroy'])->names('admin.categories');
+
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
+    Route::resource('restaurants', \App\Http\Controllers\Admin\RestaurantController::class);
+});
+
