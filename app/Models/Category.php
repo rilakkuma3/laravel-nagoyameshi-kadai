@@ -9,7 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function restaurant(){
         return $this->belongsToMany(Restaurant::class, 'category_restaurants')->withTimestamps();
     }
+
+    
 }

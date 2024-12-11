@@ -34,6 +34,8 @@ class UserFactory extends Factory
             'postal_code' => fake()->postcode(),
             'address' => fake()->address(),
             'phone_number' => fake()->phoneNumber(),
+            'birthday' => '1991-10-20',
+            'occupation' => 'aiueo'
         ];
     }
 
@@ -47,10 +49,10 @@ class UserFactory extends Factory
         ]);
     }
 
-    public function admin(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'is_admin' => true,
-        ]);
-    }
+    // public function admin(): static
+    // {
+    //     return $this->state(fn (array $attributes) => [
+    //         'is_admin' => true,
+    //     ]);
+    // }
 }
