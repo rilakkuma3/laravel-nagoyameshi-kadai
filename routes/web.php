@@ -2,9 +2,9 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\RestaurantController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\HomeController;
@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
 
 Route::group(['middleware' => 'guest:admin'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::resource('user', UserController::class);
 });
 
 
