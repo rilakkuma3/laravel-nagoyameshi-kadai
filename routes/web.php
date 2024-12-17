@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\HomeController;
@@ -68,4 +69,11 @@ Route::middleware(['guest:admin', 'auth', 'subscribed'])->group(function () {
     Route::get('restaurants/{restaurant}/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('restaurants.reviews.edit');
     Route::patch('restaurants/{restaurant}/reviews/{review}', [ReviewController::class, 'update'])->name('restaurants.reviews.update');
     Route::delete('restaurants/{restaurant}/reviews/{review}', [ReviewController::class, 'destroy'])->name('restaurants.reviews.destroy');
+});
+
+Route::middleware(['guest:admin', 'auth', 'subscribed'])->group(function () {
+    Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::get('restaurants/{restaurant}/reservations/create', [ReservationController::class, 'create'])->name('restaurants.reservations.create');
+    Route::post('restaurants/{restaurant}/reservations', [ReservationController::class, 'store'])->name('restaurants.reservations.store');
+    Route::delete('reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 });
