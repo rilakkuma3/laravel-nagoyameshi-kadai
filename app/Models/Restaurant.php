@@ -8,7 +8,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Restaurant extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
 
     public function categories() {
         return $this->belongsToMany(Category::class)->withTimestamps();
