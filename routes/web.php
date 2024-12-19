@@ -15,6 +15,7 @@ use App\Http\Controllers\TermController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FavoriteController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,8 @@ Route::group(['middleware' => 'guest:admin'], function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::resource('user', UserController::class);
     Route::resource('restaurants', RestaurantController::class);
+    Route::get('company', [CompanyController::class, 'index'])->name('company.index');
+    Route::get('terms', [TermController::class, 'index'])->name('terms.index');
 });
 
 Route::group(['middleware' => [NotSubscribed::class]], function () {
@@ -86,3 +89,5 @@ Route::middleware(['guest:admin', 'auth', 'subscribed'])->group(function () {
     Route::post('favorites/{restaurant_id}', [FavoriteController::class, 'store'])->name('favorites.store');
     Route::delete('favorites/{restaurant_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 });
+
+
