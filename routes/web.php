@@ -54,6 +54,8 @@ Route::group(['middleware' => 'guest:admin'], function () {
 
     Route::group(['middleware' => ['auth']], function (){
         Route::resource('user', UserController::class);
+        Route::resource('restaurants.reviews', ReviewController::class)->only(['index']);
+        
         Route::group(['middleware' => [NotSubscribed::class]], function () {
             Route::get('subscription/create', [SubscriptionController::class, 'create'])->name('subscription.create');
             Route::post('subscription', [SubscriptionController::class, 'store'])->name('subscription.store');
