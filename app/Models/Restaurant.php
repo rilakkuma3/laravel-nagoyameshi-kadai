@@ -11,11 +11,11 @@ class Restaurant extends Model
     use HasFactory, Sortable;
 
     public function categories() {
-        return $this->belongsToMany(Category::class)->withTimestamps();
+        return $this->belongsToMany(Category::class, 'category_restaurant')->withTimestamps();
     }
 
     public function regular_holidays(){
-        return $this->belongsToMany(RegularHoliday::class)->withTimestamps();
+        return $this->belongsToMany(RegularHoliday::class, 'regular_holiday_restaurant')->withTimestamps();
     }
 
     public function users(){
