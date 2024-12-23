@@ -34,7 +34,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_cannot_access_subscription_create()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->get(route('subscription.create'));
         $response->assertRedirect(route('subscription.edit'));
@@ -79,7 +79,7 @@ class SubscriptionTest extends TestCase
         $response = $this->actingAs($user)->post(route('subscription.store'), $request_parameter);
 
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $this->assertTrue($user->subscribed('premium_plan'));
 
         $response->assertRedirect(route('home'));
@@ -89,7 +89,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_cannot_store_subscription()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $request_parameter = [
             'paymentMethodId' => 'pm_card_visa'
@@ -138,7 +138,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_can_access_subscription_edit()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->get(route('subscription.edit'));
         $response->assertStatus(200);
@@ -197,7 +197,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_can_update_subscription()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $old_payment_method = [
             'paymentMethodId' => 'pm_card_visa'
@@ -256,7 +256,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_can_access_subscription_cancel()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->get(route('subscription.cancel'));
         $response->assertStatus(200);
@@ -299,7 +299,7 @@ class SubscriptionTest extends TestCase
     public function test_subscribed_user_can_destroy_subscription()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->delete(route('subscription.destroy'));
         $this->assertFalse($user->subscribed('premium_plan'));
