@@ -76,7 +76,7 @@ Route::group(['middleware' => 'guest:admin'], function () {
 });
 
 
-
+/*
 
 Route::middleware(['guest:admin', 'auth', 'subscribed'])->group(function () {
     Route::get('restaurants/{restaurant}/reviews/create', [ReviewController::class, 'create'])->name('restaurants.reviews.create');
@@ -99,4 +99,4 @@ Route::middleware(['guest:admin', 'auth', 'subscribed'])->group(function () {
     Route::delete('favorites/{restaurant_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 });
 
-
+*/
