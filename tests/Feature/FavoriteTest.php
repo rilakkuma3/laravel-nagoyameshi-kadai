@@ -36,7 +36,7 @@ class FavoriteTest extends TestCase
     public function test_subscribed_user_can_access_favorites_index()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $response = $this->actingAs($user)->get(route('favorites.index'));
         $response->assertStatus(200);
@@ -95,7 +95,7 @@ class FavoriteTest extends TestCase
     {
         $restaurant = Restaurant::factory()->create();
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $restaurant_user = [
             'restaurant_id' => $restaurant->id,
@@ -170,7 +170,7 @@ class FavoriteTest extends TestCase
     {
         $restaurant = Restaurant::factory()->create();
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $restaurant->users()->attach($user->id);
 

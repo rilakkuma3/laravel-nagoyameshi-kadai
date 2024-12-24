@@ -40,7 +40,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_can_access_reviews_index()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $restaurant = Restaurant::factory()->create();
 
         $response = $this->actingAs($user)->get(route('restaurants.reviews.index', $restaurant));
@@ -86,7 +86,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_can_access_reviews_create()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $restaurant = Restaurant::factory()->create();
 
         $response = $this->actingAs($user)->get(route('restaurants.reviews.create', $restaurant));
@@ -148,7 +148,7 @@ class ReviewTest extends TestCase
     {
         $restaurant = Restaurant::factory()->create();
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
 
         $review = [
             'score' => 1,
@@ -219,7 +219,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_cannot_access_others_reviews_edit()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $others_user = User::factory()->create();
         $restaurant = Restaurant::factory()->create();
 
@@ -236,7 +236,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_can_access_reviews_edit()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $restaurant = Restaurant::factory()->create();
 
         $review = Review::factory()->create([
@@ -322,7 +322,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_cannot_update_others_reviews()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $others_user = User::factory()->create();
         $restaurant = Restaurant::factory()->create();
         
@@ -348,7 +348,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_can_update_reviews()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $restaurant = Restaurant::factory()->create();
         
         $old_details = Review::factory()->create([
@@ -437,7 +437,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_cannot_destroy_others_reviews()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $others_user = User::factory()->create();
         $restaurant = Restaurant::factory()->create();
 
@@ -456,7 +456,7 @@ class ReviewTest extends TestCase
     public function test_subscribed_user_can_destroy_reviews()
     {
         $user = User::factory()->create();
-        $user->newSubscription('premium_plan', 'price_1Q2OJvCn6kb1TaWJwhjmcYCr')->create('pm_card_visa');
+        $user->newSubscription('premium_plan', 'price_1QVNI1054bpuqcVCGUM7Erjs')->create('pm_card_visa');
         $restaurant = Restaurant::factory()->create();
 
         $review = Review::factory()->create([
