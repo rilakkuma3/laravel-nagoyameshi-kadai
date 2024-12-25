@@ -41,7 +41,7 @@
     <div class="bg-light mb-4 py-4">
         <div class="container nagoyameshi-container">
             <h2 class="mb-3">キーワードから探す</h2>
-            <form method="GET" action="#" class="nagoyameshi-user-search-box">
+            <form method="GET" action="{{ route('restaurants.index') }}" class="nagoyameshi-user-search-box">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="店舗名・エリア・カテゴリ" name="keyword">
                     <button type="submit" class="btn text-white shadow-sm nagoyameshi-btn">検索</button>
